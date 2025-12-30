@@ -1,40 +1,56 @@
-# Recopilación y almacenamiento de datos (SQL)
+# 🛺 Zuber Ride-Sharing Data Analysis
+# 🚀 Project Overview
+You are working as a data analyst for Zuber, a new ride-sharing company launching in Chicago. The goal is to identify patterns in ride data, understand passenger preferences, and analyze the impact of external factors, such as weather, on trips.
 
-Además de los datos que recuperaste en las tareas anteriores te han dado un segundo archivo. Ahora tienes estos dos CSV:
+The project is divided into two main parts:
 
-/datasets/project_sql_result_01.csv. contiene los siguientes datos:
+SQL Analysis: Extract and prepare data to identify trends and passenger behavior.
+Python Analysis: Use the SQL data to explore key trends, detect outliers, and validate a hypothesis about the relationship between trip duration and weather conditions.
+# 📊 Dataset Description
+The dataset includes the following tables:
 
-company_name: nombre de la empresa de taxis
+neighborhoods:
 
-trips_amount: el número de viajes de cada compañía de taxis el 15 y 16 de noviembre de 2017. 
+name: Name of the neighborhood.
+neighborhood_id: Neighborhood code.
+cabs:
 
-/datasets/project_sql_result_04.csv. contiene los siguientes datos:
+cab_id: Vehicle code.
+vehicle_id: Technical vehicle ID.
+company_name: Taxi company name.
+trips:
 
-dropoff_location_name: barrios de Chicago donde finalizaron los viajes
+trip_id: Trip code.
+cab_id: Vehicle code operating the trip.
+start_ts: Trip start date and time (rounded to the hour).
+end_ts: Trip end date and time (rounded to the hour).
+duration_seconds: Trip duration in seconds.
+distance_miles: Trip distance in miles.
+pickup_location_id: Neighborhood code for pickup.
+dropoff_location_id: Neighborhood code for dropoff.
+weather_records:
 
-average_trips: el promedio de viajes que terminaron en cada barrio en noviembre de 2017.
+record_id: Weather record code.
+ts: Date and time of the weather record (rounded to the hour).
+temperature: Temperature at the time of the record.
+description: Brief weather description (e.g., "light rain," "scattered clouds").
+# 🎯 Key Objectives
+Identify neighborhoods and companies with the highest number of completed trips. Verify and remove outliers to ensure precise analysis. Test a statistical hypothesis to determine if there is a relationship between trip duration and weather conditions.
 
- Para estos dos datasets ahora necesitas
+# 📊 Analysis Results
+# 🏆 Leading Taxi Companies
+Chicago has 64 taxi companies, but Flash Cab dominates the market, completing 19,558 rides—the highest among all competitors.
+# 📍 Most Popular Destination
+The Loop in Chicago is the top drop-off location, likely due to its status as a major tourist and business hub in the city.
+🌦️ Impact of Weather on Rides
+Chicago's weather is known for rapid changes and strong winds.
+Statistical tests (t-test and Levene's test) were conducted to analyze the impact of weather on ride duration.
+Results indicate that weather does not significantly affect taxi trips in Chicago.
+# 🛠️ Tools and Technologies
+Programming Languages: Python, SQL Data Extraction: BeautifulSoup Data Preparation: SQL Data Analysis: Pandas, NumPy, SciPy Data Visualization: Matplotlib, Seaborn
 
-importar los archivos
-estudiar los datos que contienen
-asegurarte de que los tipos de datos sean correctos
-identificar los 10 principales barrios en términos de finalización del recorrido
-hacer gráficos: empresas de taxis y número de viajes, los 10 barrios principales por número de finalizaciones
-sacar conclusiones basadas en cada gráfico y explicar los resultados
-Paso 5. Prueba de hipótesis (Python)
-
-/datasets/project_sql_result_07.csv — el resultado de la última consulta. Contiene datos sobre viajes desde el Loop hasta el Aeropuerto Internacional O'Hare. Recuerda, estos son los valores de campo de la tabla:
-
-start_ts: fecha y hora de la recogida
-weather_conditions: condiciones climáticas en el momento en el que comenzó el viaje
-duration_seconds: duración del viaje en segundos
-Prueba la hipótesis:
-
-"La duración promedio de los viajes desde el Loop hasta el Aeropuerto Internacional O'Hare cambia los sábados lluviosos".
-
-Decide por tu cuenta dónde establecer el nivel de significación (alfa).
-
+# 📈 Core Competencies
+Data Cleaning and Preparation. Data Visualization and Reporting. Hypothesis Testing using statistical methods.
 Explica:
 
 cómo planteaste las hipótesis nula y alternativa
