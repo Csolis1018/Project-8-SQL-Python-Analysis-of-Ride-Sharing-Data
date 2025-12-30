@@ -1,11 +1,13 @@
 
--- Instrucciones: 
+-- Instructions:
 
--- Imprime el campo company_name. 
--- Encuentra la cantidad de viajes en taxi para cada compañía de taxis para el 15 y 16 de noviembre de 2017, asigna al campo resultante el nombre trips_amount e imprímelo también. 
--- Ordena los resultados por el campo trips_amount en orden descendente.
+-- Print the company_name field.
 
--- Código SQL: 
+-- Find the number of taxi trips for each taxi company for November 15th and 16th, 2017, name the resulting field trips_amount, and print it as well.
+
+-- Sort the results by the trips_amount field in descending order.
+
+-- SQL Code:
 
 SELECT 
     cabs.company_name AS company_name,
@@ -21,13 +23,14 @@ GROUP BY
 ORDER BY 
     trips_amount DESC;
 
--- Instrucciones:
+-- Instructions:
 
--- Encuentra la cantidad de viajes para cada empresa de taxis cuyo nombre contenga las palabras "Yellow" o "Blue" del 1 al 7 de noviembre de 2017. 
--- Nombra la variable resultante trips_amount.
--- Agrupa los resultados por el campo company_name.
+-- Find the number of trips for each taxi company whose name contains the words "Yellow" or "Blue" from November 1st to 7th, 2017.
+-- Name the resulting variable trips_amount.
 
--- Código SQL: 
+-- Group the results by the company_name field.
+
+-- SQL Code:
 SELECT 
     cabs.company_name,
     COUNT(trips.trip_id) AS trips_amount
@@ -55,15 +58,19 @@ GROUP BY
     company_name;
 
 
--- Instrucciones:
+-- Instructions:
 
--- Del 1 al 7 de noviembre de 2017, las empresas de taxis más populares fueron Flash Cab y Taxi Affiliation Services. 
--- Encuentra el número de viajes de estas dos empresas y asigna a la variable resultante el nombre trips_amount. 
--- Junta los viajes de todas las demás empresas en el grupo "Other". Agrupa los datos por nombres de empresas de taxis. 
--- Asigna el nombre company al campo con nombres de empresas de taxis. 
--- Ordena el resultado en orden descendente por trips_amount.
+-- From November 1st to 7th, 2017, the most popular taxi companies were Flash Cab and Taxi Affiliation Services.
 
--- Código SQL: 
+-- Find the number of trips for these two companies and name the resulting variable trips_amount.
+
+-- Group the trips for all other companies into the "Other" group. Group the data by taxi company name.
+
+-- Name the field with taxi company names "company".
+
+-- Sort the result in descending order by trips_amount.
+
+-- SQL Code:
 SELECT 
     CASE 
         WHEN cabs.company_name = 'Flash Cab' THEN 'Flash Cab'
@@ -81,11 +88,11 @@ GROUP BY
     company
 ORDER BY trips_amount DESC;
 
--- Instrucciones:
+-- Instructions:
 
--- Recupera los identificadores de los barrios de O'Hare y Loop de la tabla neighborhoods.
+-- Retrieve the identifiers for the O'Hare and Loop neighborhoods from the neighborhoods table.
 
--- Código SQL: 
+-- SQL Code:
 
 SELECT 
     name,
@@ -96,13 +103,15 @@ WHERE
     name LIKE '%Hare'
     OR name LIKE 'Loop'
 
--- Instrucciones:
+-- Instructions:
 
--- Para cada hora recupera los registros de condiciones meteorológicas de la tabla weather_records.
---  Usando el operador CASE, divide todas las horas en dos grupos: Bad si el campo description contiene las palabras rain o storm, y Good para los demás. 
--- Nombra el campo resultante weather_conditions. La tabla final debe incluir dos campos: fecha y hora (ts) y weather_conditions.
+-- For each hour, retrieve the weather condition records from the weather_records table.
 
--- Código SQL: 
+-- Using the CASE operator, divide all hours into two groups: Bad if the description field contains the words rain or storm, and Good for all others.
+
+-- Name the resulting field weather_conditions. The final table should include two fields: date and time (ts) and weather_conditions.
+
+-- SQL Code:
 SELECT
     ts,
     CASE 
@@ -111,20 +120,24 @@ SELECT
 FROM 
     weather_records
 
--- Instrucciones:
+-- Instructions:
 
--- Recupera de la tabla de trips todos los viajes que comenzaron en el Loop (pickup_location_id: 50) el sábado y terminaron en O'Hare (dropoff_location_id: 63).
--- Obtén las condiciones climáticas para cada viaje. Utiliza el método que aplicaste en la tarea anterior. 
--- Recupera también la duración de cada viaje. 
--- Ignora los viajes para los que no hay datos disponibles sobre las condiciones climáticas.
--- Ordena por trip_id.
+-- Retrieve from the trips table all trips that started at the Loop (pickup_location_id: 50) on Saturday and ended at O'Hare (dropoff_location_id: 63).
 
--- Las columnas de la tabla deben estar en el siguiente orden:
+-- Get the weather conditions for each trip. Use the method you applied in the previous task.
+
+-- Also retrieve the duration of each trip.
+
+-- Ignore trips for which no weather data is available.
+
+-- Sort by trip_id.
+
+-- The table columns should be in the following order:
 -- start_ts
 -- weather_conditions
 -- duration_seconds
 
--- Código SQL: 
+-- SQL Code:
 SELECT
     start_ts,
     T.weather_conditions,
