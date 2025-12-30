@@ -51,7 +51,3 @@ Programming Languages: Python, SQL Data Extraction: BeautifulSoup Data Preparati
 
 # 📈 Core Competencies
 Data Cleaning and Preparation. Data Visualization and Reporting. Hypothesis Testing using statistical methods.
-Explica:
-
-cómo planteaste las hipótesis nula y alternativa
-qué criterio usaste para probar las hipótesis y por qué
